@@ -64,7 +64,7 @@ do
 				sleep 5
 				
 				echo "#$SEQ;$DEV;$RND;$WRT;$IO;START" >> $FILEPOWER
-				ssh $PCTEST 'sudo /usr/bin/fio  --name=varwrite --filename=/mnt/'$DEV'/fio_test.dat --rw=randrw --percentage_random='$RND' --rwmixwrite='$WRT' --ioengine=sync --buffered=0 --direct=1 --bs='$IO'K --size=100M --output-format=json' > $LOGS/"$DEV"_"$RND"_"$WRT"_"$IO"_"$SEQ"_.json
+				ssh $PCTEST 'sudo /usr/bin/fio  --name=varwrite --filename=/mnt/'$DEV'/fio_test.dat --rw=randrw --percentage_random='$RND' --rwmixwrite='$WRT' --ioengine=sync --buffered=0 --direct=1 --bs='$IO'K --size=1G --output-format=json' > $LOGS/"$DEV"_"$RND"_"$WRT"_"$IO"_"$SEQ"_.json
 				sleep 5
 				echo "#$SEQ;$DEV;$RND;$WRT;$IO;STOP" >> $FILEPOWER
 				done
